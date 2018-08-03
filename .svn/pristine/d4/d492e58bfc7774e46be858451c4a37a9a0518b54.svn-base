@@ -1,0 +1,200 @@
+<template>
+    <div>
+        <div id="BigBox">
+          <!-- 轮播图 -->
+          <div class="swipe-box">
+            <div class="mui-slider">
+              <div class="mui-slider-group">
+                <div class="mui-slider-item"><img src="../../../static/images/home/banner1.png"></div>
+                <div class="mui-slider-item"><img src="../../../static/images/home/banner.png"></div>
+                <div class="mui-slider-item"><img src="../../../static/images/home/banner2.png"></div>
+              </div>
+            </div>
+          </div>
+          <!-- 扫一扫、一键上报 -->
+          <ul class="saoma_shangbao">
+            <router-link to="/scan" tag="li" class="ml">
+              <img src="../../../static/images/icon_sm.png" alt="">
+              <div class="">扫码上报</div>
+            </router-link>
+            <router-link to="/report" tag="li" class="mr">
+              <img src="../../../static/images/icon_yjsb.png" alt="">
+              <div class="">一键上报</div>
+            </router-link>
+          </ul>
+
+          <!-- 外包服务与行业动态 -->
+          <div class="OutsourcingService">
+            <div class="OutsourcingService_bigBox">
+              <div class="OutsourcingService_titles">
+                <span>外包服务</span>
+                <p>更多&nbsp <i class="mui-icon mui-icon-arrowright"></i></p>
+              </div>
+              <ul class="OutsourcingService_lists">
+                <router-link to="/scan" tag="li">
+                  <div class="OutsourcingService_imgs">
+                    <img src="../../../static/images/home/window.png" alt="">
+                  </div>
+                  <p>会议室设备</p>
+                </router-link>
+                <router-link to="/scan" tag="li">
+                  <div class="OutsourcingService_imgs">
+                    <img src="../../../static/images/home/window.png" alt="">
+                  </div>
+                  <p>办公设备</p>
+                </router-link>
+                <router-link to="/scan" tag="li">
+                  <div class="OutsourcingService_imgs">
+                    <img src="../../../static/images/home/window.png" alt="">
+                  </div>
+                  <p>办公设备</p>
+                </router-link>
+              </ul>
+            </div>
+          </div>
+
+          <div class="OutsourcingService">
+            <div class="OutsourcingService_bigBox">
+              <div class="OutsourcingService_titles">
+                <span>行业动态</span>
+                <router-link to="/IndustryDynamicsAll" tag="p">更多&nbsp <i class="mui-icon mui-icon-arrowright"></i>
+                </router-link>
+              </div>
+              <ul class="OutsourcingService_lists">
+                <router-link to="/IndustryDynamicsList" tag="li">
+                  <div class="OutsourcingService_imgs">
+                    <img src="../../../static/images/home/window.png" alt="">
+                  </div>
+                  <p>办公设备</p>
+                </router-link>
+                <router-link to="/IndustryDynamicsList" tag="li">
+                  <div class="OutsourcingService_imgs">
+                    <img src="../../../static/images/home/window.png" alt="">
+                  </div>
+                  <p>办公设备</p>
+                </router-link>
+                <router-link to="/IndustryDynamicsList" tag="li">
+                  <div class="OutsourcingService_imgs">
+                    <img src="../../../static/images/home/window.png" alt="">
+                  </div>
+                  <p>办公设备</p>
+                </router-link>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <navbar :isShow="isShow" :isShow1="isShow1" :isShow2="isShow2"></navbar>
+
+
+
+
+
+    </div>
+
+
+
+</template>
+
+<script>
+  //const API_PROXY = 'https://bird.ioliu.cn/v1/?url='
+  import navbar from '../Publice/navbar.vue'
+  export default {
+    data(){
+      return {
+        isShow: true,
+        isShow1: false,
+        isShow2: false,
+      }
+    },
+    components:{
+      navbar
+    },
+    methods:{
+      getTonode(){
+        this.$router.push('/node')
+      }
+    },
+    mounted(){
+      //获得slider插件对象
+      var gallery = mui('.mui-slider');
+      gallery.slider({
+        interval:5000//自动轮播周期，若为0则不自动播放，默认为0；
+      });
+    }
+  };
+</script>
+
+<style scoped>
+  #BigBox{
+    width: 100%;
+    margin-bottom: 150px;
+  }
+  .swipe-box{
+  }
+  /*扫码上报*/
+  .saoma_shangbao{
+    border-bottom: 1px solid #f2f2f2;
+    display: flex;
+    justify-content: space-between;
+  }
+  .saoma_shangbao>li{
+    /*width: 150px;*/
+    font-size: 26px;
+  }
+  .ml{
+    margin-left: 198px;
+  }
+  .mr{
+    margin-right: 198px;
+  }
+  .saoma_shangbao>li>img{
+    margin-top: 40px;
+    margin-left: 20px;
+    width: 70px;
+  }
+  .saoma_shangbao>li>div{
+    line-height: 44px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+
+  /*外包服务*/
+  .OutsourcingService{
+    width: 100%;
+    border-bottom: 1px solid #f2f2f2;
+  }
+  .OutsourcingService_bigBox{
+    width: 96%;
+    margin: 0 auto;
+  }
+  .OutsourcingService_titles{
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  .OutsourcingService_titles>span{
+    display: block;
+    font-size: 36px;
+  }
+   .OutsourcingService_titles>p{
+    font-size: 26px;
+  }
+  .OutsourcingService_lists{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .OutsourcingService_lists>li{
+    width: 32%;
+  }
+  .OutsourcingService_lists img{
+    width: 100%;
+    /*float: left;*/
+  }
+  .OutsourcingService_lists p{
+    padding: 10px 0 5px;
+    text-align: center;
+  }
+</style>

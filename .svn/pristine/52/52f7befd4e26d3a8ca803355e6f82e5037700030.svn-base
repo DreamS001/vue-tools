@@ -1,0 +1,73 @@
+<template>
+    <div>
+      <headers :title="title" :toUrl="toUrl"></headers>
+      <div class="navBars">
+        <ul>
+          <!--<router-link v-if="" v-for="(item,index) in states" :to="{path:'/MineOrder/MineStates/'+index}" tag="li" active-class="dianji">{{item.test}}</router-link>-->
+        </ul>
+      </div>
+      <div class="MineOrders">
+        <router-view></router-view>
+      </div>
+    </div>
+</template>
+
+<script>
+    import headers from "../component/headers.vue"
+    export default {
+      name: "MineOrder",
+      components:{
+        headers
+      },
+      data(){
+        return{
+          title:"我的订单",//在header.vue中使用
+          toUrl: "/OrderCenter",
+          states:[
+            {
+              sre:"../../../static/images/OrderCenter/ToBeTreated.png",
+              test:"待处理"
+            },
+            {
+              sre:"../../../static/images/OrderCenter/treated.png",
+              test:"处理中"
+            },
+            {
+              sre:"../../../static/images/OrderCenter/evaluate.png",
+              test:"待评价"
+            },
+            {
+              sre:"../../../static/images/OrderCenter/complete.png",
+              test:"已完成"
+            },
+          ]
+        }
+      },
+      methods:{
+
+      }
+    }
+</script>
+
+<style scoped>
+  .navBars{
+    width: 100%;
+    border-bottom: 1px solid #f2f2f2;
+  }
+  .navBars>ul{
+    width: 96%;
+    height: 76px;
+    margin: 20px auto 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .navBars>ul>li{
+    font-size: 34px;
+    color: #666666;
+  }
+  .dianji{
+    color: #4b99eb!important;
+  }
+
+</style>

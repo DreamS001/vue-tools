@@ -1,0 +1,64 @@
+*{
+  margin: 0;
+  padding: 0;
+  /*touch-action: none;*/
+}
+body {
+    background-color: white;
+}
+/*@font-face{
+	font-family: "Microsoft Yahei";
+	src:url(../fonts/vista.ttf);
+}*/
+a{
+	color: #FFFFFF;
+}
+li{
+	list-style: none;
+}
+.mui-content{
+  background-color: #F4F3F2;
+}
+.mint-toast{
+  padding: 30px !important;
+  box-sizing: border-box;
+}
+.mint-toast-text{
+  display: block;
+  font-size: 30px;/*px*/
+}
+@media screen and(min-width: 320px)and(max-width: 359px){
+  html{
+    font-size: 100px;/*px*/
+  }
+}
+@media screen and(min-width: 360px)and(max-width: 374px){
+  html{
+    font-size: 14.4px;/*px*/
+  }
+}
+@media screen and(min-width: 375px)and(max-width: 385px){
+  html{
+    font-size: 15px;/*px*/
+  }
+}
+@media screen and(min-width: 386px)and(max-width: 392px) {
+  html {
+    font-size: 15.44px;/*px*/
+  }
+}
+@media screen and(min-width: 393px)and(max-width: 400px){
+  html{
+    font-size: 16px;/*px*/
+  }
+}
+@media screen and(min-width: 401px)and(max-width: 414px){
+  html{
+    font-size: 16.48px;/*px*/
+  }
+}
+@media screen and(min-width: 750px)and(max-width: 799px){
+  html{
+    font-size: 30.72px;/*px*/
+  }
+}

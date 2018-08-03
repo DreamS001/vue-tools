@@ -1,0 +1,123 @@
+<template>
+  <div>
+    <div class="NavTitles">
+      订单中心
+    </div>
+    <div class="OrderJieShao">
+      <div class="jieShao_titles">
+        <span class="jieshao_titles_name">我的订单</span>
+        <router-link to="/MineOrder" tag="span" class="jieshao_titles_more">查看更多订单<i class="mui-icon mui-icon-arrowright"></i></router-link>
+      </div>
+      <div class="jieshao_state">
+        <ul>
+          <!--<router-link v-for="(items,index) in states" :to="{path:'/OrderCenter/OrderState/'+index}" tag="li">-->
+            <!--<img :src="items.sre" alt="">-->
+            <!--<p>{{items.test}}</p>-->
+          <!--</router-link>-->
+        </ul>
+      </div>
+      <div class="jieshao_content">
+        <router-view></router-view>
+      </div>
+    </div>
+    <navbar :isShow="isShow" :isShow1="isShow1" :isShow2="isShow2"></navbar>
+  </div>
+</template>
+
+<script>
+import navbar from '../Publice/navbar.vue';
+import topbar from '../Publice/topbar.vue';
+import solve from './Solve/solve.vue';
+export default {
+    data(){
+        return {
+          isShow: false,
+          isShow1: true,
+          isShow2: false,
+          states:[
+            {
+              sre:"../../../static/images/OrderCenter/ToBeTreated.png",
+              test:"待处理"
+            },
+            {
+              sre:"../../../static/images/OrderCenter/treated.png",
+              test:"处理中"
+            },
+            {
+              sre:"../../../static/images/OrderCenter/evaluate.png",
+              test:"待评价"
+            },
+            {
+              sre:"../../../static/images/OrderCenter/complete.png",
+              test:"已完成"
+            },
+          ]
+        }
+    },
+    components:{
+      navbar,
+    },
+  };
+</script>
+
+<style scoped>
+  /*订单目录*/
+  .NavTitles{
+    width: 100%;
+    height: 88px;
+    color: #666666;
+    background: #f7f7f7;
+    font-size: 36px;
+    text-align: center;
+    line-height: 88px;
+  }
+  /*订单介绍*/
+  .OrderJieShao{
+    width: 96%;
+    margin: 30px auto 0;
+  }
+  .jieShao_titles{
+    width: 100%;
+    height: 82px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    letter-spacing: 2px;
+    border-bottom: 1px solid #f2f2f2;
+  }
+  .jieshao_titles_name{
+    font-size: 34px;
+    color: #666666;
+  }
+  .jieshao_titles_more{
+    font-size: 28px;
+    color: #999999;
+  }
+  .jieshao_titles_more>i{
+    font-size: 34px;
+    margin-left: 20px;
+  }
+
+  /*订单的状态*/
+  .jieshao_state{
+    margin-top: 28px;
+  }
+  .jieshao_state>ul{
+    display: flex;
+    justify-content: space-around;
+  }
+  .jieshao_state>ul>li{
+    width: 120px;
+  }
+  .jieshao_state>ul>li>img{
+    width: 48px;
+    height: 48px;
+    margin-left: 36px;
+  }
+  .jieshao_state>ul>li>p{
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 0;
+    margin-top: 15px;
+  }
+</style>
